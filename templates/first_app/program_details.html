@@ -1,0 +1,26 @@
+{% extends 'first_app/base.html' %}
+{% block body_block %}
+{% if user.is_authenticated %}
+
+       <div class="container">
+         <br><br><br>
+          <h1 class="serif" align="center" style="font-size: 4rem;" >Program Details </h1>
+          <br>
+        </div>
+        <div class="djangotwo" align ="center">
+
+            <h3>Program Name : {{ program.programe_name }}</h3>
+            <h3>No of People : {{ program.no_of_people }}</h3>
+            <h3>Place : {{ program.place }}</h3>
+            <h3>Description : {{ program.description }}</h3>
+            
+      </div>
+
+    </div>
+{% else %}
+<h1>Please login</h1>
+        
+{% endif %}
+            
+{% endblock %}
+        

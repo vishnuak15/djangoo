@@ -1,0 +1,71 @@
+{% extends 'first_app/base.html' %}
+{% block body_block %}
+
+{% if user.is_authenticated %}
+
+       <div class="container">
+         <br>
+         <br>
+          <h1 class="serif" align="center" style="font-size: 4rem;" >List of Organization </h1>
+          <br>  
+          <br>
+        </div>
+        <div class="djangotwo">
+            {% if entity %}
+           
+              <table class="table bg-dark " >
+                
+                <thead  style="color: rgb(255, 255, 2);">
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">buisness reg no</th>
+                    <th scope="col">Tax reg no</th>
+                    <th scope="col">address</th>
+                    <th scope="col">Contact no</th>
+                    <th scope="col">   </th>
+                    <th scope="col">   </th>
+                  </tr>
+                </thead>
+
+                {% for acc in entity %}
+                
+                <tbody class="bg-dark" >
+                  <tr>
+                    <td ><a class="text-light" href="{% url 'prog'  pk=acc.pk  %}">{{acc.entity_name}}</a></td>
+                    <td class="text-light" >{{acc.buisness_reg_no}}</td>
+                    <td class="text-light">{{acc.Tax_reg_no}}</td>
+                    <td class="text-light" >{{acc.address}}</td>
+                    <td class="text-light">{{acc.contact_no}}</td>
+                    <td class="text-light"><a href="{% url 'updatentity' pk=acc.pk %}">edit</a> </td>
+                    <td class="text-light"><a href="{% url 'deletentity' pk=acc.pk %}"><button class="btn btn-danger">Delete</button></a></td>
+                    
+                  </tr>
+                  {% endfor %}
+                  
+                  
+                </tbody>
+                
+              </table>
+              
+        
+          
+            
+             <br>
+
+             
+             {% else %}
+             no data
+     
+            {% endif %}
+            <br>
+            <a href="{% url 'addorg' %}"><button class="btn btn-success">ADD</button>
+      </div>
+
+    </div>
+{% else %}
+<h1>Please login</h1>
+        
+{% endif %}
+            
+{% endblock %}
+        

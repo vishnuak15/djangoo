@@ -1,0 +1,29 @@
+{% extends 'first_app/base.html' %}
+{% block body_block %}
+{% if user.is_authenticated %}
+
+       <div class="container">
+        
+  <div class="row">
+    <div class="col-md-12 text-center" style="margin-top: 235px;"> 
+          <h1 class="serif" style="font-size: 8rem;" > My Portal </h1>
+        
+        <h2>
+        <div class="djangotwo link"  align ="center">
+          
+           <a class="serif" style="text-decoration: none; color:aliceblue"  href="{% url 'entitys' %}"><h1>Organizations</h1>  </a>
+           
+         
+           <br>
+
+        </h2>
+      </div> 
+      </div>
+    </div>
+{% else %}
+<h1>Please login</h1>
+        
+{% endif %}
+            
+{% endblock %}
+        

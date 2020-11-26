@@ -1,0 +1,27 @@
+{% extends 'first_app/base.html' %}
+{% block body_block %}
+{% if user.is_authenticated %}
+
+       <div class="container">
+        <br><br><br>
+          <h1 class="serif" align="center" style="font-size: 4rem;" >Organization Details </h1>
+          <br>
+        </div>
+        <div class="djangotwo" align ="center">
+
+            <h2>Company name : {{ entity.entity_name }}</h2>
+            <h3>Buisness reg no : {{ entity.buisness_reg_no }}</h3>
+            <h3>Tax reg no : {{ entity.Tax_reg_no }}</h3>
+            <h3>Address : {{ entity.address }}</h3>
+            <h3>Contact no : {{ entity.contact_no}}</h3>
+            
+      </div>
+
+    </div>
+{% else %}
+<h1>Please login</h1>
+        
+{% endif %}
+                
+{% endblock %}
+        

@@ -1,0 +1,40 @@
+{% extends 'first_app/base.html' %}
+{% block body_block %}
+{% if user.is_authenticated %}
+
+       <div class="container">
+         <br>
+         <br>
+          <h1 align="center" class="serif" >List of Users </h1>
+        </div>
+        <div class="djangotwo">
+            {% if users %}
+             {% for acc in users %}
+             <br>
+             <div style="display: flex;">
+               <h4><strong>{{acc.name}}</strong></h4> 
+               <a class="dlink" href="{% url 'deleteuser' pk=acc.pk %}"><i class="fa fa-trash-o" style="font-size:36px"></i> </a> 
+             </div>
+            <br>
+             {% endfor %}
+             {% else %}
+             no data
+     
+            {% endif %}
+            <br>
+            <br>
+            <a href="{% url 'adduser' pk=entity.id %}"><button class="btn btn-success" >ADD</button></a> 
+            <a href="{% url 'upload' pk=entity.id %}"><button type="button" class="btn btn-info">Upload Users</button></a> 
+
+            
+
+      </div>
+
+    </div>
+{% else %}
+<h1>Please login</h1>
+        
+{% endif %}
+            
+{% endblock %}
+        
