@@ -112,7 +112,7 @@ def add_User(request,pk):
             message = "Hi, Testing"
 
             message = Mail(
-                 from_email='vishnuak15@gmail.com',
+                 from_email='vishnu.m@pacewisdom.com',
                  to_emails=["vishnu.m@pacewisdom.com"],
                  subject=subject,
                  html_content=message)
